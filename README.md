@@ -1,10 +1,24 @@
 # GitHub Topic Explorer
+Just run `npm install`
+Run with `npm start`
+Open `localhost:3000`
+
+# How it works?
+I've splitted the code into two folders
+`components` has the used components, which are `Topic.jsx` and `TopicSearch.jsx`
+`queries` folder contains te queries used so far
+I'm passing the search value to the query file
+
+Topic Search receives one param which is `value` (the search value) and renders the results with a map and renders a `TopicCard` which also contains a `TopicSearch` component within (this part makes the recursively).
+
+Sorry for not adding styles.
+
 
 ## Assignment:
 
 Your task is to build a React web application that displays all the "[topics](https://docs.github.com/en/free-pro-team@latest/graphql/reference/objects#topic)" related to the term "react", using the GitHub GraphQL API.
 
-The application should display how many "[stargazers](https://docs.github.com/en/free-pro-team@latest/graphql/reference/objects#stargazerconnection)" each topic has. A click on a topic should display the topics related to that topic, and how many stargazers they have. And so forth. There should also be Search capability to search/query on any term or topic. You should implement best practices with the UI. 
+The application should display how many "[stargazers](https://docs.github.com/en/free-pro-team@latest/graphql/reference/objects#stargazerconnection)" each topic has. A click on a topic should display the topics related to that topic, and how many stargazers they have. And so forth. There should also be Search capability to search/query on any term or topic. You should implement best practices with the UI.
 
 To interact with the Github GraphQL API you'll need to have
   * a [Github API key](https://docs.github.com/en/free-pro-team@latest/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
@@ -36,7 +50,7 @@ Best of luck
 
 ### Future Improvements
 
-Feel free to elaborate on how you would improve any of the following topics 
+Feel free to elaborate on how you would improve any of the following topics
 
 * Code Structuring:
 

@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { createRef, useState } from 'react';
+import TopicSearch from './components/TopicSearch.jsx';
 
 function App() {
+  const refSearch = createRef()
+  const [searchValue, setSearchValue] = useState('')
+
+  const handleSearch = () => {
+    setSearchValue(refSearch.current?.value)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form>
+        <label htmlFor="topic-input">
+          Enter topic to search
+          <input type="text" ref={refSearch} id="topic-input" />
+        </label>
+        <button type="button" value="Search" onClick={() => handleSearch(refSearch.current?.value)}>Search</button>
+      </form>
+
+      <TopicSearch value={searchValue} />
     </div>
   );
 }

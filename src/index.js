@@ -1,13 +1,25 @@
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+const TOKEN = process.env.REACT_APP_GITHUB_API_TOKEN
+
+const client = new ApolloClient({
+  uri: 'https://api.github.com/graphql',
+  cache: new InMemoryCache(),
+  headers: {
+    authorization: `Bearer ${TOKEN}`
+  }
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>
 );
 
